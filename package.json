@@ -1,0 +1,35 @@
+{
+  "name": "handlebars-helper-icon",
+  "version": "1.0.0",
+  "description": "A helper to use packaged svg icons inline",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/npm/handlebars-helper-icon.git"
+  },
+  "keywords": [
+    "handlebars",
+    "svg"
+  ],
+  "author": "Aria Stewart <aredridel@dinhe.net> [npm, Inc.]",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/npm/handlebars-helper-icon/issues"
+  },
+  "homepage": "https://github.com/npm/handlebars-helper-icon#readme",
+  "peerDependencies": {
+    "handlebars": "^4.0.5"
+  },
+  "dependencies": {
+    "ltx": "^2.3.0",
+    "murmurhash": "0.0.2",
+    "resolve": "^1.1.7"
+  },
+  "devDependencies": {
+    "handlebars": "^4.0.5",
+    "tap": "^5.7.1"
+  }
+}
