@@ -18,9 +18,7 @@ module.exports = function(name, opts) {
 
   const content = require.cache[mod] || (require.cache[mod] = makeSymbol(fs.readFileSync(mod, 'utf-8'), mod));
 
-  const instantiate = ltx.parse(`<svg xmlns:xlink="http://www.w3.org/1999/xlink">
-    <use xlink:href="#symbol-${murmurhash.v3(mod)}"/>
-  </svg>`);
+  const instantiate = ltx.parse(`<svg><use xlink:href="#symbol-${murmurhash.v3(mod)}"/></svg>`);
 
   Object.assign(instantiate.attrs, opts.hash);
 
