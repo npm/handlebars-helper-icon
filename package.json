@@ -1,6 +1,6 @@
 {
   "name": "handlebars-helper-icon",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A helper to use packaged svg icons inline",
   "main": "index.js",
   "scripts": {
