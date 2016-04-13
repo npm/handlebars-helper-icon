@@ -8,8 +8,8 @@ const nameToModule = {};
 
 module.exports = function(name, opts) {
 
-  if (!opts.data.root.iconsSent) {
-    opts.data.root.iconsSent = {};
+  if (!opts.data.iconsSent) {
+    opts.data.iconsSent = {};
   }
 
   const mod = nameToModule[name] || (nameToModule[name] = resolve.sync(name, {
@@ -22,8 +22,8 @@ module.exports = function(name, opts) {
 
   Object.assign(instantiate.attrs, opts.hash);
 
-  if (!opts.data.root.iconsSent[mod]) {
-    opts.data.root.iconsSent[mod] = true;
+  if (!opts.data.iconsSent[mod]) {
+    opts.data.iconsSent[mod] = true;
     return new handlebars.SafeString(content + "\n" + instantiate.root().toString());
   } else {
     return new handlebars.SafeString(instantiate);
