@@ -39,6 +39,8 @@ function makeSymbol(xml, mod) {
   symbol.name = 'symbol';
   symbol.attrs.id = `symbol-${murmurhash.v3(mod)}`;
   delete symbol.attrs.xmlns;
+  delete symbol.attrs.width;
+  delete symbol.attrs.height;
 
   const svg = ltx`<svg style='display: none'/>`;
   svg.children.push(symbol);
