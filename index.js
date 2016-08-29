@@ -16,9 +16,9 @@ module.exports = function(name, opts) {
     extensions: ['.svg']
   }));
 
-  const content = require.cache[mod] || (require.cache[mod] = makeSymbol(fs.readFileSync(mod, 'utf-8'), mod));
+  const content = require.cache[mod] || (require.cache[mod] = makeSymbol(fs.readFileSync(mod, 'utf-8'), name));
 
-  const instantiate = ltx.parse(`<svg><use xlink:href="#symbol-${murmurhash.v3(mod)}"/></svg>`);
+  const instantiate = ltx.parse(`<svg><use xlink:href="#symbol-${murmurhash.v3(name)}"/></svg>`);
 
   Object.assign(instantiate.attrs, opts.hash);
 
@@ -30,14 +30,14 @@ module.exports = function(name, opts) {
   }
 }
 
-function makeSymbol(xml, mod) {
+function makeSymbol(xml, name) {
   const symbol = ltx.parse(xml);
   if (symbol.name != 'svg') {
     throw new TypeError("Input must be an SVG");
   }
 
   symbol.name = 'symbol';
-  symbol.attrs.id = `symbol-${murmurhash.v3(mod)}`;
+  symbol.attrs.id = `symbol-${murmurhash.v3(name)}`;
   delete symbol.attrs.xmlns;
   delete symbol.attrs.width;
   delete symbol.attrs.height;
