@@ -5,7 +5,7 @@ const ltx = require('ltx');
 const resolve = require('resolve');
 const murmurhash = require('murmurhash');
 
-const id = `symbol-${murmurhash.v3(resolve.sync("./test.svg"))}`;
+const id = `symbol-${murmurhash.v3("./test.svg")}`;
 
 tap.test('register helper', function (t) {
 	handlebars.registerHelper('icon', icon);
